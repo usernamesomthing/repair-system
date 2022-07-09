@@ -18,7 +18,7 @@ SWEP.Slot = 4
 SWEP.SlotPos = 1		
 
 SWEP.Primary.Ammo = "none"
-SWEP.Primary.Damage = -50
+SWEP.Primary.Damage = -2
 
 SWEP.Secondary.Ammo = "none"
 
