@@ -20,8 +20,6 @@ include("shared.lua")
 function ENT:Draw(ply)
 	self:DrawModel()
 local lp = LocalPlayer()
-if (self:GetPos():DistToSqr(lp:GetPos()) > 300*300) then return end
- if RPExtraTeams[lp:Team()].name ~= "Technician" then return end
 
 if self:GetNWBool( "repair_state_cel_fan") == true then
 local fanAngle = (CurTime() * 90) % 360
@@ -30,6 +28,9 @@ local coinHeight = math.sin(CurTime() *3) * 5
 self:SetPos(self:GetPos())
 self:SetAngles(Angle(0,fanAngle,0))
 end
+
+if (self:GetPos():DistToSqr(lp:GetPos()) > 300*300) then return end
+ if RPExtraTeams[lp:Team()].name ~= "Technician" then return end
 
 	local Pos = self:GetPos() + Vector(0,-7,-70)
 	local Ang = Angle( 0, 0, 0)
@@ -67,3 +68,4 @@ function ENT:Think()
   self:SetNextClientThink( CurTime() + 0.5 )
   return true
 end
+
